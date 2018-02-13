@@ -10,30 +10,7 @@
 
     <title>The XMLHttpRequest Object</title>
 
-<style>
 
-table,
-
-th,
-
-td {
-
-    border: 1px solid black;
-
-    border-collapse: collapse;
-
-}
-
-
-th,
-
-td {
-
-    padding: 5px;
-
-}
-
-</style>
 
   </head>
   <body>
@@ -44,7 +21,7 @@ td {
 
     <br>
     <br>
-    <table id="content"></table>
+    <table id="content" class="table"></table>
 
     <script>
 
@@ -75,13 +52,13 @@ td {
 
         var xmlDoc = xml.responseXML;
 
-        var table = "<tr><th>Title</th><th>Artist</th><th>Genre</th><th>Year</th></tr>";
+        var table = '<thead> <tr> <td scope="col">Title</td> <td scope="col">Artist</td> <td scope="col">Genre</td> <td scope="col">Year</td></thead>';
 
         var x = xmlDoc.getElementsByTagName("songs");
 
         for (i = 0; i < x.length; i++) {
 
-            table += "<tr><td>" +
+            table += "<tbody><tr><td>" +
 
                 x[i].getElementsByTagName("title")[0].childNodes[0].nodeValue +
 
@@ -97,7 +74,7 @@ td {
 
                  x[i].getElementsByTagName("year")[0].childNodes[0].nodeValue +
 
-                 "</td></tr>";
+                 "</td></tr></tbody>";
 
         }
 
